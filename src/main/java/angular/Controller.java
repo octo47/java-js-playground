@@ -1,27 +1,32 @@
 package angular;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spark.route.RouteOverview;
 
-import java.util.ArrayList;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.List;
 
 import static spark.Spark.*;
 
-public class Controller {
+class Controller {
     private final static Logger logger = LoggerFactory.getLogger(Controller.class);
 
     private final Gson gson = new Gson();
-    private final List<Hero> heroes = new ArrayList<Hero>();
+    private final List<Hero> heroes;
+    private final Type typeOfHeroes = new TypeToken<List<Hero>>() {
+    }.getType();
 
-    public Controller() {
-        heroes.add(new Hero(1, "Super Man"));
-        heroes.add(new Hero(2, "Magneto"));
+    Controller() {
+        heroes = gson.fromJson(new InputStreamReader(
+                        this.getClass().getResourceAsStream("/angular/heroes.json")),
+                typeOfHeroes);
     }
 
-    public void setup() {
+    void setup() {
         staticFileLocation("public");
 
         path("/api", () -> {
@@ -31,6 +36,9 @@ public class Controller {
                     return heroes;
                 }, gson::toJson);
             });
+        });
+        path("/", () -> {
+            redirect.get("/*", "/");
         });
         RouteOverview.enableRouteOverview();
     }

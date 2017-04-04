@@ -22,6 +22,12 @@ $ npm install @angular/cli –g
 $ gradle build
 ```
 
+## How to run
+```
+$ gradle run
+```
+
+
 ## How to develop
 For easier developing run ng-cli build.
 ```

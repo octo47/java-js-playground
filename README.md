@@ -23,14 +23,13 @@ $ gradle build
 ```
 
 ## How to develop
-```
-For easier developing run 
+For easier developing run ng-cli build.
 ```
 ng build -w
 ```
-ng-cli will constantly build your code and put into output directory.
+ng-cli will constantly monitor and build your code into output directory.
 java application can be run from IDE that understand gradle (like IntelliJ),
-so it will put output directory into classpath for application, so sparkjava will
+so it will add output directory to classpath for the application, so sparkjava will
 see new compiled js files.
 
 Have fun!

@@ -1,5 +1,8 @@
 <h2>I'm master {{name}}, here is my heroes:</h2>
+<p>({{goodHeroes}} are good, {{badHeroes}} are bad)</p>
 <hero-child *ngFor="let hero of heroes"
             [hero] = "hero"
-            [master] = "name">
+            [master] = "name"
+            (onVoted) = "onHeroVote($event)"
+>
 </hero-child>

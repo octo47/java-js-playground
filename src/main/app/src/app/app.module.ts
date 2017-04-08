@@ -14,6 +14,7 @@ import {HeroChildComponent} from './hero-child.component';
 import {HeroMasterComponent} from './hero-master.component';
 import {VersionComponent} from './version-child.component';
 import {VersionParentComponent} from './version-parent.component';
+import {HeroVoterComponent} from './hero-voter.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {VersionParentComponent} from './version-parent.component';
     DashboardComponent,
     HeroChildComponent,
     HeroMasterComponent,
+    HeroVoterComponent,
     VersionComponent,
     VersionParentComponent,
   ],

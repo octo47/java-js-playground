@@ -1,0 +1,5 @@
+<h2>I'm master {{name}}, here is my heroes:</h2>
+<hero-child *ngFor="let hero of heroes"
+            [hero] = "hero"
+            [master] = "name">
+</hero-child>

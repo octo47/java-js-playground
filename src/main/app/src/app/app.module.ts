@@ -10,6 +10,8 @@ import {HeroesComponent} from "./heroes.component";
 import {HeroDetailComponent} from "./hero-detail.component";
 import {DashboardComponent} from "./dashboard.component";
 import {HeroService} from "./hero.service";
+import {HeroChildComponent} from './hero-child.component';
+import {HeroMasterComponent} from './hero-master.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import {HeroService} from "./hero.service";
     HeroesComponent,
     HeroDetailComponent,
     DashboardComponent,
+    HeroChildComponent,
+    HeroMasterComponent
   ],
   imports: [
     BrowserModule,

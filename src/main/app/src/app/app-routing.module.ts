@@ -1,13 +1,15 @@
-import {NgModule} from "@angular/core";
-import {RouterModule} from "@angular/router";
-import {HeroDetailComponent} from "./hero-detail.component";
-import {DashboardComponent} from "./dashboard.component";
-import {HeroesComponent} from "./heroes.component";
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {HeroDetailComponent} from './hero-detail.component';
+import {DashboardComponent} from './dashboard.component';
+import {HeroesComponent} from './heroes.component';
+import {HeroMasterComponent} from './hero-master.component';
 
 const routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'heroes', component: HeroesComponent},
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'master', component: HeroMasterComponent},
   {path: 'detail/:id', component: HeroDetailComponent},
 ];
 

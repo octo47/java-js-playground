@@ -12,6 +12,8 @@ import {DashboardComponent} from "./dashboard.component";
 import {HeroService} from "./hero.service";
 import {HeroChildComponent} from './hero-child.component';
 import {HeroMasterComponent} from './hero-master.component';
+import {VersionComponent} from './version-child.component';
+import {VersionParentComponent} from './version-parent.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {HeroMasterComponent} from './hero-master.component';
     HeroDetailComponent,
     DashboardComponent,
     HeroChildComponent,
-    HeroMasterComponent
+    HeroMasterComponent,
+    VersionComponent,
+    VersionParentComponent,
   ],
   imports: [
     BrowserModule,

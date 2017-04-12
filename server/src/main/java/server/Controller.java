@@ -1,18 +1,17 @@
-package angular;
+package server;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import spark.Spark;
 import spark.route.RouteOverview;
 
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.List;
 
-import static spark.Spark.*;
-
-class Controller {
+public class Controller {
     private final static Logger logger = LoggerFactory.getLogger(Controller.class);
 
     private final Gson gson = new Gson();
@@ -20,25 +19,25 @@ class Controller {
     private final Type typeOfHeroes = new TypeToken<List<Hero>>() {
     }.getType();
 
-    Controller() {
+    public Controller() {
         heroes = gson.fromJson(new InputStreamReader(
-                        this.getClass().getResourceAsStream("/angular/heroes.json")),
+                this.getClass().getResourceAsStream("/heroes.json")),
                 typeOfHeroes);
     }
 
-    void setup() {
-        staticFileLocation("public");
+    public void setup() {
+        Spark.staticFileLocation("public");
 
-        path("/api", () -> {
-            path("/heroes", () -> {
-                get("", (req, res) -> {
+        Spark.path("/api", () -> {
+            Spark.path("/heroes", () -> {
+                Spark.get("", (req, res) -> {
                     res.type("application/json");
                     return heroes;
                 }, gson::toJson);
             });
         });
-        path("/", () -> {
-            redirect.get("/*", "/");
+        Spark.path("/", () -> {
+            Spark.redirect.get("/*", "/");
         });
         RouteOverview.enableRouteOverview();
     }

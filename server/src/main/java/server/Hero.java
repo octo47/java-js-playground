@@ -1,4 +1,4 @@
-package angular;
+package server;
 
 import lombok.Data;
 

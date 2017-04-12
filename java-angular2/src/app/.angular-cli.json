@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "../../../build/npmbuild/public",
+      "outDir": "../../build/js/public",
       "assets": [
         "assets",
         "favicon.ico"

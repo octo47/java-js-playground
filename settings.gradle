@@ -17,5 +17,6 @@ include 'services:webservice'
 */
 
 rootProject.name = 'java-js-playground'
+include 'server'
 include 'java-angular2'
 

@@ -4,7 +4,6 @@ plugins {
 
 version 'unspecified'
 
-apply plugin: 'java'
 apply plugin: 'application'
 
 sourceCompatibility = 1.8
@@ -12,22 +11,11 @@ targetCompatibility = 1.8
 
 mainClassName = "angular.Main"
 
-dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.24'
-    compile 'org.slf4j:slf4j-simple:1.7.24'
-
-    compile 'com.sparkjava:spark-core:2.5.5'
-    compile 'com.google.code.gson:gson:2.8.0'
-    compileOnly 'org.projectlombok:lombok:1.16.2'
-
-    testCompile 'junit:junit:4.12'
-}
-
 node {
-    nodeModulesDir = file("${project.projectDir}/src/main/app")
+    nodeModulesDir = file("${project.projectDir}/src/app")
 }
 
-def npmOutputDir = "${project.buildDir}/npmbuild"
+def npmOutputDir = "${project.buildDir}/js"
 
 task build()
 build.dependsOn npm_run
@@ -42,4 +30,8 @@ sourceSets {
     main {
         output.dir(npmOutputDir, builtBy:build)
     }
+}
+
+dependencies {
+    compile project(":server")
 }

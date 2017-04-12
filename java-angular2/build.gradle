@@ -9,7 +9,7 @@ apply plugin: 'application'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-mainClassName = "angular.Main"
+mainClassName = "angular2.Main"
 
 node {
     nodeModulesDir = file("${project.projectDir}/src/app")

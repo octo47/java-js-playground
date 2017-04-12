@@ -1,0 +1,45 @@
+plugins {
+    id "com.moowork.node" version "1.1.1"
+}
+
+version 'unspecified'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = "angular.Main"
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.24'
+    compile 'org.slf4j:slf4j-simple:1.7.24'
+
+    compile 'com.sparkjava:spark-core:2.5.5'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compileOnly 'org.projectlombok:lombok:1.16.2'
+
+    testCompile 'junit:junit:4.12'
+}
+
+node {
+    nodeModulesDir = file("${project.projectDir}/src/main/app")
+}
+
+def npmOutputDir = "${project.buildDir}/npmbuild"
+
+task build()
+build.dependsOn npm_run
+clean.dependsOn npm_cache_clean
+
+npm_run {
+    args = ['build']
+}
+npm_run.dependsOn npmInstall
+
+sourceSets {
+    main {
+        output.dir(npmOutputDir, builtBy:build)
+    }
+}

@@ -16,4 +16,6 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'angular-java'
+rootProject.name = 'java-js-playground'
+include 'java-angular2'
+

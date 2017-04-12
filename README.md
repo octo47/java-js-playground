@@ -23,6 +23,7 @@ $ gradle build
 ```
 
 ## How to run
+Go to appropriate directory like java-angular and run
 ```
 $ gradle run
 ```

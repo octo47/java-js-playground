@@ -23,9 +23,11 @@ $ gradle build
 ```
 
 ## How to run
+Go to appropriate directory like java-angular and run
 ```
 $ gradle run
 ```
+At http://localhost:4567 server will serve js code.
 
 
 ## How to develop
